@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-send:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,3 +13,9 @@ jobs:
         run: yes | sdkmanager --licenses || true
       - name: Build
         run: ./gradlew assembleRelease
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: app/build/outputs/apk/release/app-release.apk
+          
