@@ -389,16 +389,6 @@ class MainActivity : LoadingActivity() {
                 }
             }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        try {
-            menuInflater.inflate(R.menu.menu_main, menu)
-            return true
-        } catch (e: Exception) {
-            Log.e(TAG, "Error creating options menu: ${e.message}")
-            return false
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         try {
             when (item.itemId) {
