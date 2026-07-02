@@ -10,7 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Accept Licenses
-        run: yes | sdkmanager --licenses || true
+        run: |
+          mkdir -p "$ANDROID_HOME/licenses"
+          echo -e "\n8933bad161af4178b1185d8a377b41a7d68dd371\n24333f8a63b6825ea9c5514f83c2829b004d1fee\n5d519d5e758a0117462c9748386f78f5669b3547" > "$ANDROID_HOME/licenses/android-sdk-license"
+          echo -e "\n84831b9409646a918e30573bab4c9c91346d817e" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
       - name: Build
         run: ./gradlew assembleRelease
       - name: Upload APK
