@@ -16,16 +16,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Grant Permission
+        run: chmod +x gradlew
+
       - name: Build with Gradle
-        run: |
-          mkdir -p "$ANDROID_HOME/licenses"
-          printf "8933bad161af4178b1185d8a377b41a7d68dd371\n" >> "$ANDROID_HOME/licenses/android-sdk-license"
-          printf "24333f8a63b6825ea9c5514f83c2829b004d1fee\n" >> "$ANDROID_HOME/licenses/android-sdk-license"
-          printf "5d519d5e758a0117462c9748386f78f5669b3547\n" >> "$ANDROID_HOME/licenses/android-sdk-license"
-          printf "84831b9409646a918e30573bab4c9c91346d817e\n" >> "$ANDROID_HOME/licenses/android-sdk-license"
-          printf "8d13261d7634f594511252994e4399c92257d903" >> "$ANDROID_HOME/licenses/android-sdk-license"
-          chmod +x gradlew
-          ./gradlew assembleRelease
+        run: ./gradlew assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
