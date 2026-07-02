@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Accept Licenses
+        run: yes | sdkmanager --licenses || true
       - name: Build
         run: ./gradlew assembleRelease
