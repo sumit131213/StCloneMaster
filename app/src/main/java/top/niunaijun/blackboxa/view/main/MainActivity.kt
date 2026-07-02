@@ -389,36 +389,30 @@ class MainActivity : LoadingActivity() {
                 }
             }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        try {
-            when (item.itemId) {
-                R.id.main_git -> {
-                    val intent =
-                            Intent(
-                                    Intent.ACTION_VIEW,
-                                    Uri.parse("https://github.com/ALEX5402/NewBlackbox")
-                            )
-                    startActivity(intent)
-                }
-                R.id.main_setting -> {
-                    SettingActivity.start(this)
-                }
-                R.id.main_tg -> {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/newblackboxa"))
-                    startActivity(intent)
-                }
-                R.id.fake_location -> {
-                    
-                    val intent = Intent(this, FakeManagerActivity::class.java)
-                    intent.putExtra("userID", 0)
-                    startActivity(intent)
-                }
-            }
+    // Ye function menu button ko screen par show karega
+override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    menuInflater.inflate(R.menu.menu_main, menu)
+    return true
+}
 
-            return true
-        } catch (e: Exception) {
-            Log.e(TAG, "Error handling menu item selection: ${e.message}")
-            return false
+// Ye tumhara existing logic hai, jo clicks ko handle karega
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    try {
+        when (item.itemId) {
+            R.id.privacy_policy -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/stclonemaster/home"))
+                startActivity(intent)
+                return true
+            }
+            R.id.support -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/stclonecontact/home"))
+                startActivity(intent)
+                return true
+            }
         }
+        return super.onOptionsItemSelected(item)
+    } catch (e: Exception) {
+        Log.e(TAG, "Error handling menu item selection: ${e.message}")
+        return false
     }
 }
