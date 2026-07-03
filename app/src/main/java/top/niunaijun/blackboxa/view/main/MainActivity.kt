@@ -389,11 +389,13 @@ class MainActivity : LoadingActivity() {
                 }
             }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Ye function menu button ko screen par show karega
+override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.menu_main, menu)
     return true
 }
 
+// Ye tumhara existing logic hai, jo clicks ko handle karega
 override fun onOptionsItemSelected(item: MenuItem): Boolean {
     try {
         when (item.itemId) {
@@ -410,9 +412,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
         }
         return super.onOptionsItemSelected(item)
     } catch (e: Exception) {
-        // Agar TAG define nahi kiya hai, toh yahan direct string "MainActivity" likh do
-        Log.e("MainActivity", "Error handling menu item selection: ${e.message}")
+        Log.e(TAG, "Error handling menu item selection: ${e.message}")
         return false
     }
 }
-
