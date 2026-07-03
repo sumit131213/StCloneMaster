@@ -203,82 +203,13 @@ class MainActivity : LoadingActivity() {
             }
 
     
-    private fun checkVpnPermission() {
-        try {
-            val vpnIntent = VpnService.prepare(this)
-            if (vpnIntent != null) {
-                
-                Log.d(TAG, "VPN permission not granted, requesting...")
-                vpnPermissionResult.launch(vpnIntent)
-            } else {
-                
-                Log.d(TAG, "VPN permission already granted")
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error checking VPN permission: ${e.message}")
-        }
-    }
+    
 
-    private val vpnPermissionResult =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                try {
-                    if (result.resultCode == RESULT_OK) {
-                        Log.d(TAG, "VPN permission granted!")
-                        
-                    } else {
-                        Log.w(TAG, "VPN permission denied by user")
-                    }
-                } catch (e: Exception) {
-                    Log.e(TAG, "Error handling VPN permission result: ${e.message}")
-                }
-            }
+   
 
-    private fun showErrorDialog(message: String) {
-        try {
-            MaterialDialog(this).show {
-                title(text = "Error")
-                message(text = message)
-                positiveButton(text = "OK") { finish() }
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error showing error dialog: ${e.message}")
-            finish()
-        }
-    }
+ 
 
-    private fun initToolbarSubTitle() {
-        try {
-            updateUserRemark(0)
-            
-            viewBinding.toolbarLayout.toolbar.getChildAt(1)?.setOnClickListener {
-                try {
-                    MaterialDialog(this).show {
-                        title(res = R.string.userRemark)
-                        input(
-                                hintRes = R.string.userRemark,
-                                prefill = viewBinding.toolbarLayout.toolbar.subtitle
-                        ) { _, input ->
-                            try {
-                                AppManager.mRemarkSharedPreferences.edit {
-                                    putString("Remark$currentUser", input.toString())
-                                    viewBinding.toolbarLayout.toolbar.subtitle = input
-                                }
-                            } catch (e: Exception) {
-                                Log.e(TAG, "Error saving user remark: ${e.message}")
-                            }
-                        }
-                        positiveButton(res = R.string.done)
-                        negativeButton(res = R.string.cancel)
-                    }
-                } catch (e: Exception) {
-                    Log.e(TAG, "Error showing remark dialog: ${e.message}")
-                }
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error in initToolbarSubTitle: ${e.message}")
-        }
-    }
-
+ 
     private fun initViewPager() {
         try {
             val userList = BlackBoxCore.get().users
