@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#3F3F3F</color>
-    <color name="primary_dark">#3F3F3F</color>
-    <color name="primary_light">#3F3F3F</color>
-    <color name="accent">#ffffff</color>
-    <color name="primary_text">#212121</color>
+    <!-- Primary Green Theme -->
+    <color name="primary">#00C853</color>
+    <color name="primary_dark">#00A344</color>
+    <color name="primary_light">#B9F6CA</color>
+    
+    <!-- Accent and Text Colors -->
+    <color name="accent">#FFD600</color>
+    <color name="primary_text">#000000</color>
     <color name="secondary_text">#757575</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
 </resources>
