@@ -2,6 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+            android:id="@+id/main_setting"
+            android:title="@string/setting"
+            app:showAsAction="never" />
+
+    <item
+        android:id="@+id/fake_location"
+        android:title="@string/fake_location"
+        app:showAsAction="never" />
+
     <item
             android:id="@+id/main_git"
             android:title="@string/open_source_path"
