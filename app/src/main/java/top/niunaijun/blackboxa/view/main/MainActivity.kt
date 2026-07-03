@@ -410,9 +410,6 @@ class MainActivity : LoadingActivity() {
                             )
                     startActivity(intent)
                 }
-                R.id.main_setting -> {
-                    SettingActivity.start(this)
-                }
                 R.id.main_tg -> {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/stclonecontact/home"))
                     startActivity(intent)
