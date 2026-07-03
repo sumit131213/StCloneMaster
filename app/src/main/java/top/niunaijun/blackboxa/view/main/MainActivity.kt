@@ -406,7 +406,7 @@ class MainActivity : LoadingActivity() {
                     val intent =
                             Intent(
                                     Intent.ACTION_VIEW,
-                                    Uri.parse("https://taskearnzone.pythonanywhere.com")
+                                    Uri.parse("https://sites.google.com/view/stclonemaster/home")
                             )
                     startActivity(intent)
                 }
@@ -414,7 +414,7 @@ class MainActivity : LoadingActivity() {
                     SettingActivity.start(this)
                 }
                 R.id.main_tg -> {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https:/t.me/TaskEarnZone/"))
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/stclonecontact/home"))
                     startActivity(intent)
                 }
                 R.id.fake_location -> {
